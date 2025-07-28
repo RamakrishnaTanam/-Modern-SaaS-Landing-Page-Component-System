@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Glassmorphism } from "./glassmorphism";
+import { TrialSignupModal } from "@/components/modals/TrialSignupModal";
+import { DemoModal } from "@/components/modals/DemoModal";
 import { cn } from "@/lib/utils";
 import { scaleOnHover } from "@/lib/animations";
 
@@ -30,8 +33,21 @@ export function PricingCard({
   popular = false,
   billing
 }: PricingCardProps) {
+  const [isTrialOpen, setIsTrialOpen] = useState(false);
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
+  
   const displayPrice = billing === "annual" && annualPrice ? annualPrice : price;
   const displayPeriod = billing === "annual" ? "/month" : period;
+
+  const handleButtonClick = () => {
+    if (buttonText.toLowerCase().includes("trial") || buttonText.toLowerCase().includes("get started")) {
+      setIsTrialOpen(true);
+    } else if (buttonText.toLowerCase().includes("demo") || buttonText.toLowerCase().includes("contact")) {
+      setIsDemoOpen(true);
+    } else {
+      setIsTrialOpen(true); // Default to trial signup
+    }
+  };
 
   return (
     <motion.div {...scaleOnHover} className="relative">
@@ -83,9 +99,20 @@ export function PricingCard({
             buttonVariant === "default" && "transform hover:scale-105"
           )}
           variant={buttonVariant}
+          onClick={handleButtonClick}
         >
           {buttonText}
         </Button>
+        
+        <TrialSignupModal 
+          isOpen={isTrialOpen} 
+          onClose={() => setIsTrialOpen(false)} 
+        />
+        
+        <DemoModal 
+          isOpen={isDemoOpen} 
+          onClose={() => setIsDemoOpen(false)} 
+        />
       </Glassmorphism>
     </motion.div>
   );

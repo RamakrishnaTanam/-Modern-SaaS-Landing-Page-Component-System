@@ -2,9 +2,13 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Glassmorphism } from "@/components/ui/glassmorphism";
+import { SignInModal } from "@/components/modals/SignInModal";
+import { TrialSignupModal } from "@/components/modals/TrialSignupModal";
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSignInOpen, setIsSignInOpen] = useState(false);
+  const [isTrialOpen, setIsTrialOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -54,10 +58,14 @@ export function Navigation() {
             </div>
 
             <div className="hidden md:flex items-center space-x-4">
-              <Button variant="ghost" className="text-slate-700 hover:text-primary">
+              <Button 
+                variant="ghost" 
+                className="text-slate-700 hover:text-primary"
+                onClick={() => setIsSignInOpen(true)}
+              >
                 Sign In
               </Button>
-              <Button>
+              <Button onClick={() => setIsTrialOpen(true)}>
                 Start Free Trial
               </Button>
             </div>
@@ -102,10 +110,23 @@ export function Navigation() {
                   FAQ
                 </button>
                 <div className="border-t border-slate-200 pt-4 pb-3">
-                  <Button variant="ghost" className="w-full mb-2">
+                  <Button 
+                    variant="ghost" 
+                    className="w-full mb-2"
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      setIsSignInOpen(true);
+                    }}
+                  >
                     Sign In
                   </Button>
-                  <Button className="w-full">
+                  <Button 
+                    className="w-full"
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      setIsTrialOpen(true);
+                    }}
+                  >
                     Start Free Trial
                   </Button>
                 </div>
@@ -114,6 +135,16 @@ export function Navigation() {
           )}
         </div>
       </Glassmorphism>
+      
+      <SignInModal 
+        isOpen={isSignInOpen} 
+        onClose={() => setIsSignInOpen(false)} 
+      />
+      
+      <TrialSignupModal 
+        isOpen={isTrialOpen} 
+        onClose={() => setIsTrialOpen(false)} 
+      />
     </nav>
   );
 }

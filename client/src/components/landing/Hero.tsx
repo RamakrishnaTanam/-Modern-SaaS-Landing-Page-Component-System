@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Play, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -5,9 +6,13 @@ import { GradientText } from "@/components/ui/gradient-text";
 import { Glassmorphism } from "@/components/ui/glassmorphism";
 import { Badge } from "@/components/ui/badge";
 import { HeroVideo } from "@/components/ui/hero-video";
+import { TrialSignupModal } from "@/components/modals/TrialSignupModal";
+import { DemoModal } from "@/components/modals/DemoModal";
 import { fadeInUp, fadeIn } from "@/lib/animations";
 
 export function Hero() {
+  const [isTrialOpen, setIsTrialOpen] = useState(false);
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
   return (
     <section className="pt-24 pb-20 bg-gradient-to-br from-slate-50 via-primary/5 to-slate-100 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5"></div>
@@ -31,10 +36,19 @@ export function Hero() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <Button size="lg" className="transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl">
+              <Button 
+                size="lg" 
+                className="transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+                onClick={() => setIsTrialOpen(true)}
+              >
                 Start 14-Day Free Trial
               </Button>
-              <Button variant="outline" size="lg" className="glassmorphism hover:bg-white/20 transition-all duration-200">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="glassmorphism hover:bg-white/20 transition-all duration-200"
+                onClick={() => setIsDemoOpen(true)}
+              >
                 <Play className="w-5 h-5 mr-2" />
                 Watch Demo
               </Button>
@@ -62,6 +76,16 @@ export function Hero() {
           </motion.div>
         </div>
       </div>
+      
+      <TrialSignupModal 
+        isOpen={isTrialOpen} 
+        onClose={() => setIsTrialOpen(false)} 
+      />
+      
+      <DemoModal 
+        isOpen={isDemoOpen} 
+        onClose={() => setIsDemoOpen(false)} 
+      />
     </section>
   );
 }

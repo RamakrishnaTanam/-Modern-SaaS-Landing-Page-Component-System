@@ -3,6 +3,7 @@ import { Play, Pause } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Glassmorphism } from "./glassmorphism";
+import { VideoModal } from "@/components/modals/VideoModal";
 
 interface HeroVideoProps {
   poster?: string;
@@ -19,14 +20,15 @@ export function HeroVideo({
 }: HeroVideoProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   const handlePlayClick = () => {
     if (src) {
       setShowVideo(true);
       setIsPlaying(true);
     } else {
-      // Fallback to demo modal or placeholder
-      alert("Demo video coming soon!");
+      // Open interactive video modal instead of alert
+      setIsVideoModalOpen(true);
     }
   };
 
@@ -74,6 +76,13 @@ export function HeroVideo({
           </Glassmorphism>
         </div>
       )}
+      
+      <VideoModal 
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        title={title}
+        // You can add a real YouTube video ID here: videoId="dQw4w9WgXcQ"
+      />
     </motion.div>
   );
 }
