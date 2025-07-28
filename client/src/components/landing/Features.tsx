@@ -8,7 +8,7 @@ import {
   Shield 
 } from "lucide-react";
 import { FeatureCard } from "@/components/ui/feature-card";
-import { GradientText } from "@/components/ui/gradient-text";
+import { SectionHeader } from "@/components/ui/section-header";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 const features = [
@@ -54,14 +54,11 @@ export function Features() {
   return (
     <section id="features" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div {...fadeInUp} className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">
-            Powerful AI Features That <GradientText>Drive Results</GradientText>
-          </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Our comprehensive AI suite provides everything you need to automate, optimize, and scale your marketing efforts.
-          </p>
-        </motion.div>
+        <SectionHeader
+          title="Powerful AI Features That Drive Results"
+          gradientWord="Drive Results"
+          description="Our comprehensive AI suite provides everything you need to automate, optimize, and scale your marketing efforts."
+        />
         
         <motion.div 
           {...staggerContainer}

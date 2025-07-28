@@ -30,7 +30,7 @@ export function ContactForm() {
   });
 
   const mutation = useMutation({
-    mutationFn: async (data: typeof form.getValues) => {
+    mutationFn: async (data: any) => {
       return apiRequest("POST", "/api/contact", data);
     },
     onSuccess: () => {
@@ -49,7 +49,7 @@ export function ContactForm() {
     }
   });
 
-  const onSubmit = (data: typeof form.getValues) => {
+  const onSubmit = (data: any) => {
     mutation.mutate(data);
   };
 

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { GradientText } from "@/components/ui/gradient-text";
 import { Glassmorphism } from "@/components/ui/glassmorphism";
 import { Badge } from "@/components/ui/badge";
+import { HeroVideo } from "@/components/ui/hero-video";
 import { fadeInUp, fadeIn } from "@/lib/animations";
 
 export function Hero() {
@@ -53,10 +54,10 @@ export function Hero() {
           
           <motion.div {...fadeIn} className="relative">
             <div className="absolute -inset-4 bg-gradient-to-r from-primary to-accent rounded-2xl blur-lg opacity-30 animate-float"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
-              alt="AI Marketing Dashboard Interface" 
-              className="relative rounded-2xl shadow-2xl w-full h-auto" 
+            <HeroVideo 
+              poster="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600"
+              title="ADmyBRAND AI Suite Demo"
+              className="relative"
             />
           </motion.div>
         </div>

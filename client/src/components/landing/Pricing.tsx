@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { PricingCard } from "@/components/ui/pricing-card";
 import { PricingCalculator } from "@/components/ui/pricing-calculator";
-import { GradientText } from "@/components/ui/gradient-text";
+import { SectionHeader } from "@/components/ui/section-header";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
 
 const pricingPlans = [
@@ -60,16 +60,17 @@ export function Pricing() {
   return (
     <section id="pricing" className="py-20 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div {...fadeInUp} className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">
-            Simple, Transparent <GradientText>Pricing</GradientText>
-          </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto mb-8">
-            Choose the perfect plan for your business. All plans include our core AI features with 14-day free trial.
-          </p>
+        <div className="text-center mb-16">
+          <SectionHeader
+            title="Simple, Transparent Pricing"
+            gradientWord="Pricing"
+            description="Choose the perfect plan for your business. All plans include our core AI features with 14-day free trial."
+          />
           
-          <PricingCalculator onBillingChange={setBilling} />
-        </motion.div>
+          <motion.div {...fadeInUp} className="mt-8">
+            <PricingCalculator onBillingChange={setBilling} />
+          </motion.div>
+        </div>
         
         <motion.div 
           {...staggerContainer}

@@ -1,12 +1,13 @@
 import { motion } from "framer-motion";
 import { StatItem } from "@/components/ui/stat-item";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { staggerContainer } from "@/lib/animations";
 
 const stats = [
-  { value: "10,000+", label: "Active Customers" },
-  { value: "50M+", label: "Campaigns Optimized" },
-  { value: "300%", label: "Average ROI Increase" },
-  { value: "99.9%", label: "Platform Uptime" }
+  { value: "10,000+", label: "Active Customers", numericValue: 10000, suffix: "+" },
+  { value: "50M+", label: "Campaigns Optimized", numericValue: 50, suffix: "M+" },
+  { value: "300%", label: "Average ROI Increase", numericValue: 300, suffix: "%" },
+  { value: "99.9%", label: "Platform Uptime", numericValue: 99.9, suffix: "%" }
 ];
 
 export function Stats() {
