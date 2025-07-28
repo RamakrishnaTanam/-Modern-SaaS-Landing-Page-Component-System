@@ -226,7 +226,7 @@ The application is ready for deployment on platforms like:
 
 ### Build for Production
 ```bash
-npm run build
+npm install
 ```
 
 ## 📝 License
