@@ -40,10 +40,10 @@ export function NewsletterSignup({
     mutationFn: async (data: z.infer<typeof newsletterSchema>) => {
       return apiRequest("POST", "/api/subscribe", data);
     },
-    onSuccess: (response) => {
+    onSuccess: (response: any) => {
       toast({
         title: "Subscribed!",
-        description: response.message || "You've been added to our newsletter.",
+        description: response?.message || "You've been added to our newsletter.",
       });
       form.reset();
     },

@@ -14,7 +14,7 @@ const blogPosts = [
     date: "Jan 15, 2025",
     readTime: "5 min read",
     category: "Trends",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250",
     slug: "future-ai-marketing-2025"
   },
   {
@@ -24,7 +24,7 @@ const blogPosts = [
     date: "Jan 12, 2025",
     readTime: "8 min read",
     category: "Case Study",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250",
+    image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250",
     slug: "techcorp-roi-case-study"
   },
   {
@@ -34,7 +34,7 @@ const blogPosts = [
     date: "Jan 10, 2025",
     readTime: "12 min read",
     category: "Guide",
-    image: "https://images.unsplash.com/photo-1562564055-71e051d80d3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250",
+    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250",
     slug: "marketing-automation-guide"
   }
 ];
@@ -95,7 +95,15 @@ export function BlogSection() {
                     <div className="text-sm text-slate-600">
                       By {post.author}
                     </div>
-                    <Button variant="ghost" size="sm" className="text-primary hover:text-primary/80">
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="text-primary hover:text-primary/80"
+                      onClick={() => {
+                        // In a real app, this would navigate to the blog post
+                        window.open(`https://blog.admybrand.com/${post.slug}`, '_blank');
+                      }}
+                    >
                       Read more
                       <ArrowRight className="w-4 h-4 ml-1" />
                     </Button>
@@ -107,7 +115,15 @@ export function BlogSection() {
         </motion.div>
         
         <motion.div {...fadeInUp} className="text-center">
-          <Button variant="outline" size="lg" className="glassmorphism hover:bg-white/20">
+          <Button 
+            variant="outline" 
+            size="lg" 
+            className="glassmorphism hover:bg-white/20"
+            onClick={() => {
+              // In a real app, this would navigate to the blog homepage
+              window.open('https://blog.admybrand.com', '_blank');
+            }}
+          >
             View All Articles
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>

@@ -9,7 +9,7 @@ const testimonials = [
     role: "VP Marketing",
     company: "TechCorp",
     testimonial: "ADmyBRAND AI Suite completely transformed our marketing ROI. We saw a 250% increase in qualified leads within the first quarter. The AI optimization is incredibly smart.",
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100",
+    avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100",
     rating: 5
   },
   {
@@ -17,7 +17,7 @@ const testimonials = [
     role: "CMO",
     company: "Growth Ventures",
     testimonial: "The predictive analytics feature is a game-changer. We can now forecast campaign performance with incredible accuracy and adjust strategies proactively.",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100",
     rating: 5
   },
   {
@@ -25,7 +25,7 @@ const testimonials = [
     role: "Director of Digital",
     company: "StartupCo",
     testimonial: "Implementation was seamless and the support team is outstanding. We're now running campaigns across multiple channels effortlessly with their automation platform.",
-    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=100&h=100",
+    avatar: "https://images.unsplash.com/photo-1598966739654-5e9a252d8c32?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100",
     rating: 5
   }
 ];
